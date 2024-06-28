@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+}
+
+div {
+    width: 1500px;
+    height: 5px;
+    background-color: red;
+}
+
+tr {
+    background-color: white;
+    border-color: red;
+}
+
+table {
+    width: 1000px;
+    height: 50px;
+}

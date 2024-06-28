@@ -23,7 +23,8 @@ h1 {
         height: 50%;
     }
 
-    h1 {
-
+    div {
+        width: 99%;
+        height: 4px;
     }
 }

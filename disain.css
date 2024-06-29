@@ -34,7 +34,7 @@ h1 {
     }
 }
 
-#btn {
+button {
     font-size: 20px;
     width: 200px;
     height: 90px;
@@ -47,7 +47,7 @@ h1 {
     transition: 0.5s;
 }
 
-#btn:hover {
+button:hover {
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -55,7 +55,7 @@ h1 {
     color: red;
 }
 
-#btn:active {
+button:active {
     background-color: black;
 }
 

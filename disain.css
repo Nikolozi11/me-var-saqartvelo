@@ -27,6 +27,11 @@ h1 {
         width: 99%;
         height: 4px;
     }
+
+    img {
+        width: 70%;
+        height: 60%;
+    }
 }
 
 #btn {
@@ -52,4 +57,12 @@ h1 {
 
 #btn:active {
     background-color: black;
+}
+
+h2 {
+    color: white;
+}
+
+h4 {
+    color: white;
 }

@@ -67,3 +67,13 @@ h5 {
     color: white;
 }
 
+table {
+    width: 1100px;
+    height: 200px;
+    border-color: red;
+}
+
+td {
+    color: white;
+}
+

@@ -1,87 +1,68 @@
 body {
-   background-color: black;
-}
-
-/*texti*/
-h1 {
-    color: white;
-}
-
-/*rilakebi*/
-button {
-    font-size: 20px;
-    width: 20%;
-    height: 100px;
-    border-radius: 30%;
-    background-color: red;
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-button:hover {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    background-color: white;
-    color: red;
-}
-
-button:active {
     background-color: black;
+    background-image: url(img/fon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-attachment: fixed;
 }
 
-/*devaisis zomebi*/
-@media (max-width: 1500px) {
-    button {
-        font-size: 50%;
-    }
-
-    .baner {
-        width: 99%;
-        height: 50%;
-    }
-
-    iframe {
-        width: 40%;
-        height: 50%;
-    }
-
-    img {
-        width: 70%;
-        height: 60%;
-    }
+.baner {
+    position: relative;
+    width: 95%;
+    height: 90%;
+    filter: blur(10px);
+    z-index: 0;
 }
 
-/*textebi*/
-h2 {
-    color: white;
+.banert {
+    position: relative;
+    width: 95%;
+    height: 85%;
+    z-index: 2;
+    margin-top: -10021px;
 }
 
-h5 {
-    color: white;
+.trt {
+    width: 10%;
 }
-/*angarisebi*/
+
+iframe {
+    width: 50%;
+}
+
+h1 {
+    color: blue;
+}
+
+h3 {
+    color: blue;
+}
+
+h4 {
+    color: blue;
+}
+
 .vs {
-    width: 75%;
-    height: 200px;
-    border-color: red;
+    width: 70%;
+    height: 80%;
+    border-color: white;
+    background-color: red;
 }
 
 td {
     color: white;
 }
 
-/*LIGIS CXRILI*/
 .league {
-    width: 75%;
-    height: 500px;
-    border-color: red;
+    width: 70%;
+    height: 100%;
+    background-color: red;
 }
 
-.trt {
-    width: 100px;
-    height: 100px;
+@media (max-width: 738px) {
+    iframe {
+        width: 50%;
+        height: 100%;
+    }
 }

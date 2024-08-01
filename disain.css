@@ -48,7 +48,6 @@ h4 {
     width: 70%;
     height: 80%;
     border-color: white;
-    background-color: red;
 }
 
 td {
@@ -59,8 +58,24 @@ td {
 .league {
     width: 70%;
     height: 100%;
-    background-color: red;
     border-color: white;
+}
+
+.te {
+    background-color: red;
+}
+
+.br {
+    background-color: brown;
+}
+
+#canvas{
+	background-color: white;
+}
+
+canvas {
+    width: 90%;
+    height: 90%;
 }
 
 /*zoma telefoni*/

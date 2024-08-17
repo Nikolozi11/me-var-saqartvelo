@@ -404,10 +404,3 @@ function renderBackground(){
 function clear(){
 	c.clearRect(0,0,canvas.width,canvas.height);
 }
-
-//catvirtva//
-window.addEventListener("load", () => {
-	setTimeout(() => {
-	  document.getElementById("preloader").classList.add("hide");
-	}, 1000);
-  });

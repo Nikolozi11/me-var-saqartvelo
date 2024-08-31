@@ -7,6 +7,8 @@ body {
     background-attachment: fixed;
 }
 
+
+
 /*baneri*/
 .baner {
     position: relative;
@@ -32,13 +34,9 @@ body {
 
 /*textebi*/
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
 
 h1 {
     color: blue;
-    font-family: "Bungee Tint", sans-serif;
-    font-weight: 400;
-    font-style: normal;;
 }
 
 h3 {
@@ -146,9 +144,13 @@ a {
   height: 50%;
 }
 
+.mekare {
+  margin-top: -400px;
+}
 
 /*zoma telefoni*/
 @media (max-width: 738px) {
+
 
     iframe {
         width: 50%;
@@ -156,7 +158,7 @@ a {
     }
 
     nav {
-      margin-top: -730px;
+      margin-top: -768px;
       height: 100vh;
     }
 

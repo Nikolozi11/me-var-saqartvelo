@@ -27,11 +27,6 @@ body {
     margin-top: -10021px;
 }
 
-/*gamyofi*/
-.trt {
-    width: 10%;
-}
-
 /*textebi*/
 
 
@@ -147,6 +142,7 @@ a {
 .mekare {
   margin-top: -400px;
 }
+
 
 /*zoma telefoni*/
 @media (max-width: 738px) {

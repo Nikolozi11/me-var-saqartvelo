@@ -151,35 +151,6 @@ a {
   height: 50%;
 }
 
-.mekare {
-  margin-top: -400px;
-}
-
-
-.komentar {
-  z-index: 111110000000;
-  margin: auto;
-  width: 500px;
-  height: 450px;
-  background-color: rgb(90, 90, 90);
-  overflow: scroll;
-}
-
-#btn-post {
-  width: 50px;
-  height: 40px;
-  background-color: brown;
-  color: white;
-}
-
-#comment-container p {
-  margin-bottom: 5px;  /* ეს დაამატებს 15px ადგილზე კომენტარებს შორის */
-  padding: 5px;        /* არჩევით შეგიძლია დაამატო padding */
-  border: 1px solid rgb(90, 90, 90); /* ხაზით აღნიშვნა */
-  border-radius: 5px;   /* რაუნდერი კუთხეები */
-  background-color: rgb(90, 90, 90); /* ფონური ფერი */
-}
-
 #timer {
   font-size: 24px;
   font-weight: bold;
@@ -233,14 +204,6 @@ a {
 
    .ms {
     visibility: visible;
-   }
-
-   .komentar {
-    width: 410px;
-   }
-
-   #new-comment {
-    width: 400px;
    }
 
    .live {

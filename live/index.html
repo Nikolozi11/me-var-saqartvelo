@@ -7,103 +7,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>მე ვარ საქართველო</title>
-
-    <script>
-        // Define your password (change it to something secure)
-        const adminPassword = "niko1234";
-    
-        // Load comments from localStorage when the page loads
-        document.addEventListener("DOMContentLoaded", function () {
-            const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
-            const commentContainer = document.getElementById("comment-container");
-    
-            // Function to create comment element
-            function createCommentElement(comment) {
-                const commentElement = document.createElement("p");
-                commentElement.innerText = comment;
-                return commentElement;
-            }
-    
-            // Display each saved comment
-            savedComments.forEach(comment => {
-                const commentElement = createCommentElement(comment);
-                commentContainer.appendChild(commentElement);
-            });
-    
-            // Event listener for posting a new comment
-            document.getElementById("btn-post").addEventListener("click", function () {
-                const newComment = document.getElementById("new-comment").value;
-    
-                if (newComment.trim()) {
-                    const commentElement = createCommentElement(newComment);
-                    commentContainer.appendChild(commentElement); // New comment appears immediately
-    
-                    // Save the comment to localStorage
-                    savedComments.push(newComment);
-                    localStorage.setItem("comments", JSON.stringify(savedComments));
-    
-                    // Clear the textarea
-                    document.getElementById("new-comment").value = "";
-                }
-            });
-    
-            // Event listener for clearing all comments (with password protection)
-            document.getElementById("btn-clear").addEventListener("click", function () {
-                // Ask for password before clearing all comments
-                const userPassword = prompt("შეიყვანეთ პაროლი ყველა კომენტარის გასასუფთავებლად:");
-    
-                if (userPassword === adminPassword) {
-                    // Clear the localStorage
-                    localStorage.removeItem("comments");
-    
-                    // Clear the comment container on the page
-                    commentContainer.innerHTML = "";
-                    alert("ყველა კომენტარი გასუფთავებულია!");
-                } else {
-                    alert("არასწორი პაროლი! თქვენ არ ხართ უფლებამოსილი, გაასუფთავოთ კომენტარები.");
-                }
-            });
-        });
-    </script>
 </head>
 <body>
-       
-      <!--nav board-->
-      
-      <div class="ms">=</div>
-    
-      <input type="checkbox" class="ch"> 
-    
+    <!--nav board-->
+    <div class="ms">=</div>
+    <input type="checkbox" class="ch"> 
     <nav>
         <ul>
             <a href="../index.html"><li>მთავარი</li></a>
-        <a href="../live/index.html"><li>ლაივი</li></a>
-        <a href="../tamasebi/index.html"><li>თამაშები</li></a>
-        <a href="../cxrilebi/index.html"><li>ცხრილები</li></a>
-        <a href="../infor/index.html"><li>ინფორმაციები</li></a> 
+            <a href="../live/index.html"><li>ლაივი</li></a>
+            <a href="../tamasebi/index.html"><li>თამაშები</li></a>
+            <a href="../cxrilebi/index.html"><li>ცხრილები</li></a>
+            <a href="../infor/index.html"><li>ინფორმაციები</li></a> 
         </ul>
     </nav>   
 
-
     <br>
     <br>
     <br>
     <br>
-    <div class="live"><center><h4>ფეხბურთის პირდაპირი ტრანსლაცია</h4></center>
+    <div class="live">
+        <center><h4>ფეხბურთის პირდაპირი ტრანსლაცია</h4></center>
         <div id="timer">ჩატვირთვა...</div> <!-- ტაიმერი აქ გამოჩნდება -->
     </div>
     
-    
-        <center><h1>დაამატე კომენტარი</h1></center>
-        <br>
-        <div class="komentar">    
-            <div id="comment-container"></div>
-            <br>
-            <br>
-            <textarea id="new-comment" cols="60" rows="5"></textarea>
-            <br>
-            <button id="btn-post">პოსტი</button>
-            <button id="btn-clear" style="margin-top: 10px; padding: 5px 10px;">წაშალე ყველა კომენტარი</button> <!-- Ensure this button is visible -->
-        </div>
-
+</body>
 </html>

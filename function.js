@@ -22,3 +22,4 @@ const countdown = setInterval(function() {
     }
 }, 1000); // 1 წამში ერთხელ განახლდება
  
+

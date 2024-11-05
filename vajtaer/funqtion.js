@@ -38,25 +38,31 @@ burger.addEventListener('click', () => {
 
 
 
+document.getElementById('commentForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const comment = document.getElementById('comment').value;
 
-document.getElementById('commentForm').addEventListener('submit', function(e) {
-    e.preventDefault();  // ხელს უშლის გვერდის განახლებას
+    try {
+        const response = await fetch('/comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ comment }),
+        });
 
-    let comment = document.getElementById('commentText').value;
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-    fetch('http://localhost:3000/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: comment }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('commentsSection').innerHTML += `<p>${data.text}</p>`;
-        document.getElementById('commentText').value = '';  // ცარიელდება ტექსტური ველი
-    })
-    .catch((error) => {
+        const result = await response.json();
+        console.log(result.message);
+
+        // კომენტარების სიაში განახლება
+        document.getElementById('commentsList').innerHTML += `<p style="color: white;">${comment}</p>`;
+        document.getElementById('comment').value = ''; // ხორციელდება კომენტარის ველის გასუფთავება
+    } catch (error) {
         console.error('Error:', error);
-    });
+    }
 });

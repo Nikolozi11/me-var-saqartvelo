@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <script src="server.js" defer></script>
     <script src="funqtion.js" defer></script>
     <link rel="stylesheet" href="../disain.css" />
     <link rel="shortcut icon" type="x-icon" href="../img/GFF-logo.png">
@@ -75,6 +75,14 @@
     <br>
     <br>
     <br>
+    <form id="commentForm">
+        <textarea id="commentText" placeholder="წერე კომენტარი"></textarea>
+        <button type="submit">გაგზავნე</button>
+    </form>
+    <div id="commentsSection"></div>
     
+    <br>
+    <br>
+    <br>  
 </body>
 </html>

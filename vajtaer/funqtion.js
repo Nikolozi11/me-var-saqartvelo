@@ -31,3 +31,32 @@ const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => {
     navLinks.classList.toggle('active'); // ღილაკზე დაჭერისას მენიუ გამოჩნდება ან დაიმალება
 });
+
+
+
+
+
+
+
+
+document.getElementById('commentForm').addEventListener('submit', function(e) {
+    e.preventDefault();  // ხელს უშლის გვერდის განახლებას
+
+    let comment = document.getElementById('commentText').value;
+
+    fetch('http://localhost:3000/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: comment }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('commentsSection').innerHTML += `<p>${data.text}</p>`;
+        document.getElementById('commentText').value = '';  // ცარიელდება ტექსტური ველი
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});

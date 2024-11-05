@@ -197,6 +197,12 @@ header {
 }
 
 
+#commentInput {
+  color: white; /* თეთრი ტექსტი */
+  background-color: rgb(61, 60, 60); /* ფონური ფერი (შავი) */
+  border: 1px solid white; /* თეთრი საზღვარი */
+  padding: 10px; /* შიდა სივრცე */
+}
 
 
 /* Responsive Styles */

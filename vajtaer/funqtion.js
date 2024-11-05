@@ -44,7 +44,7 @@ document.getElementById('commentForm').addEventListener('submit', function(e) {
 
     let comment = document.getElementById('commentText').value;
 
-    fetch('http://localhost:3000/comments', {
+    fetch('http://localhost:3000/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

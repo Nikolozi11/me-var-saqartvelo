@@ -32,37 +32,3 @@ burger.addEventListener('click', () => {
     navLinks.classList.toggle('active'); // ღილაკზე დაჭერისას მენიუ გამოჩნდება ან დაიმალება
 });
 
-
-
-
-
-
-
-document.getElementById('commentForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    
-    const comment = document.getElementById('comment').value;
-
-    try {
-        const response = await fetch('/comments', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ comment }),
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const result = await response.json();
-        console.log(result.message);
-
-        // კომენტარების სიაში განახლება
-        document.getElementById('commentsList').innerHTML += `<p style="color: white;">${comment}</p>`;
-        document.getElementById('comment').value = ''; // ხორციელდება კომენტარის ველის გასუფთავება
-    } catch (error) {
-        console.error('Error:', error);
-    }
-});

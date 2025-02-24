@@ -205,8 +205,48 @@ padding: 10px; /* შიდა სივრცე */
 }
 
 
+
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer {
+  width: 2%;
+}
+
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
+
+  footer ul li {
+    display: block; /* Each list item will be on a new line */
+    margin: 10px 0;
+  }
+
+  footer ul li {
+    display: block; /* Each list item will be on a new line */
+    margin: 10px 0;
+  }
+
+  footer {
+    padding: 15px; /* Optional: reduce padding on smaller screens */
+  }
 
 
 .nav-links {

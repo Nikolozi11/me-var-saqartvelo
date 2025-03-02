@@ -206,47 +206,34 @@ padding: 10px; /* შიდა სივრცე */
 
 
 
-
-footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-footer ul li {
-  display: inline;
-  margin: 0 10px;
-}
-footer a {
-  color: white;
-  text-decoration: none;
+.livei {
+  width: 70%;
+  height: 600px;
 }
 
-.footer {
-  width: 2%;
+/* ანიმაცია */
+
+.container {
+  position: relative;
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+}
+
+.animated-photo {
+  width: 100%;
+  animation: bounceFootball 3s infinite ease-in-out;
+}
+
+@keyframes bounceFootball {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-
-  footer ul li {
-    display: block; /* Each list item will be on a new line */
-    margin: 10px 0;
-  }
-
-  footer ul li {
-    display: block; /* Each list item will be on a new line */
-    margin: 10px 0;
-  }
-
-  footer {
-    padding: 15px; /* Optional: reduce padding on smaller screens */
-  }
 
 
 .nav-links {

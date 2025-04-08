@@ -1,5 +1,5 @@
  
- const matchStartTime = new Date("2025-03-20T00:00:00+04:00").getTime(); // GMT+4
+ const matchStartTime = new Date("2025-09-20T00:00:00+04:00").getTime(); // GMT+4
 
  // დანარჩენი კოდი იგივე რჩება
  const countdown = setInterval(function() {

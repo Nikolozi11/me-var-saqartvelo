@@ -297,6 +297,32 @@ header {
   padding: 0;
 }
 
+/* Submenu სტილები */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  list-style: none;
+  padding: 10px;
+  width: 150px;
+  z-index: 100;
+  margin: 0; /* დარწმუნდით, რომ აქ არ ხდება შიდა სივრცის შეცვლა */
+}
+
+.submenu-parent.active .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none; /* დაწყებული იქნება დამალული */
+}
+
+.submenu-parent.active .submenu {
+  display: block; /* submenu გამოჩნდება, როცა parent-ს აქვს "active" კლასი */
+}
+
 .nav-links li {
   margin-left: 20px;
   position: relative;

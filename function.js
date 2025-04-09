@@ -1,18 +1,9 @@
-const burger = document.getElementById("burger");
-const navLinks = document.getElementById("navLinks");
-const submenuParents = document.querySelectorAll(".submenu-parent");
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
 
-burger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // ღილაკზე დაჭერისას მენიუ გამოჩნდება ან დაიმალება
 });
 
-// მობილურზე submenu-ს toggle
-submenuParents.forEach(parent => {
-  parent.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault(); // ბმული არ გაიხსნას
-      parent.classList.toggle("active");
-    }
-  });
-});
+
 

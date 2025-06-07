@@ -15,26 +15,14 @@ body {
 
 
 /*baneri*/  
-.center-wrapper {
-  text-align: center;
-  padding: 40px;
-}
-
-.baner {
-  width: 95%;
-  height: 50%;
-  display: inline-block;
-  filter: blur(10px); 
-  z-index: 0;
-}
-/*baneri text*/
-.banert {
-  position: relative;
-  width: 95%;
-  height: 85%;
-  margin-top: -1000px;
-  z-index: 1;
-  
+canvas {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 100%;
+  height: auto; /* height auto — არ გაწელავს ძალით */
+  max-height: 100vh; /* ტელეფონზე ზედმეტი რომ არ გავიდეს */
+  box-shadow: 10px 10px 10px rgb(255, 0, 0);
 }
 
 /*video*/

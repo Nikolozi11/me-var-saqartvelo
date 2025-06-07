@@ -6,7 +6,6 @@ burger.addEventListener('click', () => {
 });
 
 //ჩამოშლა
-
 document.querySelectorAll('.submenu-parent').forEach((item) => {
     item.addEventListener('mouseenter', () => {
         // ჯერ ყველა submenu დავმალოთ
@@ -25,14 +24,28 @@ document.querySelectorAll('.submenu-parent').forEach((item) => {
     });
 });
 
-//ქანვას ბანერი
-
+//ქანვა ბანერი
 const canvas = document.getElementById('banner');
 const ctx = canvas.getContext('2d');
 
+const bannerWidth = 600;  // ბანერის გაფართოება ტელეფონისთვის
+const bannerHeight = 300; // ბანერის სიმაღლე ტელეფონისთვის
+
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    if (isMobile()) {
+        // ტელეფონისთვის - ფონი იქნება ბანერის პროპორციაზე
+        canvas.width = bannerWidth;
+        canvas.height = bannerHeight;
+        // პლუს, მობილურზე ცენტრში მოვათავსებთ canvas-ს CSS-ით (არა აქ, მაგრამ შეგიძლია დაამატო)
+    } else {
+        // კომპიუტერზე - ფონი სრულად ფანჯრის ზომაზე
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
 }
 
 resizeCanvas();
@@ -52,12 +65,12 @@ let textHoldFrames = 0;
 let startTextFadeOut = false;
 
 class Particle {
-    constructor(x, y) {
+    constructor(x, y, scale = 1) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 3 + 1;
+        this.size = (Math.random() * 3 + 1) * scale;
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 1.5 + 0.5;
+        const speed = (Math.random() * 6 + 2) * scale;
         this.speedX = Math.cos(angle) * speed;
         this.speedY = Math.sin(angle) * speed;
         this.alpha = 1;
@@ -66,7 +79,7 @@ class Particle {
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.alpha -= 0.0015;
+        this.alpha -= 0.003;
         if (this.alpha < 0) this.alpha = 0;
     }
 
@@ -78,11 +91,11 @@ class Particle {
     }
 }
 
-function createParticles() {
+function createParticles(scale = 1) {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     for (let i = 0; i < 20; i++) {
-        particles.push(new Particle(centerX, centerY));
+        particles.push(new Particle(centerX, centerY, scale));
     }
 }
 
@@ -92,9 +105,9 @@ function animate() {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Responsive logoSize
-    const minDimension = Math.min(canvas.width, canvas.height);
-    const logoSize = minDimension * 0.2; // 20% ეკრანის ზომის
+    const scale = isMobile() ? 0.5 : 1;
+
+    const logoSize = 150 * scale;
 
     if (!explode) {
         if (logoAlpha < 1) {
@@ -102,7 +115,13 @@ function animate() {
         }
 
         ctx.globalAlpha = logoAlpha;
-        ctx.drawImage(logo, canvas.width / 2 - logoSize / 2, canvas.height / 2 - logoSize / 2, logoSize, logoSize);
+        ctx.drawImage(
+            logo,
+            canvas.width / 2 - logoSize / 2,
+            canvas.height / 2 - logoSize / 2,
+            logoSize,
+            logoSize
+        );
         ctx.globalAlpha = 1;
 
         frameCount++;
@@ -113,10 +132,13 @@ function animate() {
     } else {
         if (logoAlpha > 0) {
             logoAlpha -= 0.05;
-            if (!stopCreatingParticles) createParticles();
+            createParticles(scale);
         } else {
             logoAlpha = 0;
-            stopCreatingParticles = true;
+            if (!stopCreatingParticles) {
+                stopCreatingParticles = true;
+                showText = true;
+            }
         }
 
         for (let i = particles.length - 1; i >= 0; i--) {
@@ -127,10 +149,6 @@ function animate() {
             if (p.alpha <= 0) {
                 particles.splice(i, 1);
             }
-        }
-
-        if (stopCreatingParticles && particles.length <= 5) {
-            showText = true;
         }
     }
 
@@ -150,12 +168,9 @@ function animate() {
         ctx.save();
         ctx.globalAlpha = Math.max(textAlpha, 0);
         ctx.fillStyle = 'white';
-
-        // Responsive ტექსტი — ზომა დამოკიდებულია ეკრანზე
-        const fontSize = Math.floor(minDimension * 0.06); // ~6% ეკრანის ზომის
-        ctx.font = `900 ${fontSize}px "Roboto Slab", serif`;
+        ctx.font = `bold ${64 * scale}px sans-serif`;
         ctx.textAlign = 'center';
-        ctx.fillText('მე ვარ საქართველო', canvas.width / 2, canvas.height / 2);
+        ctx.fillText('მე ვარ საქართველო', canvas.width / 2, canvas.height / 2 + 64 * 0.4 * scale);
         ctx.restore();
     }
 
@@ -187,22 +202,6 @@ window.addEventListener('resize', () => {
     resizeCanvas();
 });
 
-
-function resizeCanvas() {
-    const desiredAspectRatio = 16 / 9;
-
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-
-    if (width / height > desiredAspectRatio) {
-        width = height * desiredAspectRatio;
-    } else {
-        height = width / desiredAspectRatio;
-    }
-
-    canvas.width = width;
-    canvas.height = height;
-}
 
 
 
